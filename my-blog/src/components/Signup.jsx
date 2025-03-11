@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { supabase } from "../services/supabaseClient";
+import Swal from "sweetalert2";
 import {
   Form,
   Button,
@@ -63,9 +64,14 @@ const SignUp = () => {
   const handleLogout = async () => {
     try {
       await dispatch(logout()).unwrap();
-      navigate("/");
+      Swal.fire("Logout", "You have successfully logged out.", "success").then(
+        () => {
+          navigate("/");
+        }
+      );
     } catch (error) {
-      console.error("Logout error:", error);
+      console.error(error);
+      Swal.fire("Error!", "Something went wrong during logout.", "error");
     }
   };
 

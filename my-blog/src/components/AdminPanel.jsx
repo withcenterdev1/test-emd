@@ -15,6 +15,7 @@ import { logout } from "../redux/authSlice";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchUserCount } from "../redux/authSlice";
 import { fetchBlogCount } from "../redux/blogSlice";
+import Swal from "sweetalert2";
 
 const AdminPanel = () => {
   const dispatch = useDispatch();
@@ -25,9 +26,14 @@ const AdminPanel = () => {
   const handleLogout = async () => {
     try {
       await dispatch(logout()).unwrap();
-      navigate("/login");
+      Swal.fire("Logout", "You have successfully logged out.", "success").then(
+        () => {
+          navigate("/");
+        }
+      );
     } catch (error) {
-      console.error("Logout error:", error);
+      console.error(error);
+      Swal.fire("Error!", "Something went wrong during logout.", "error");
     }
   };
 
