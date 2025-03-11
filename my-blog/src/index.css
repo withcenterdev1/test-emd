@@ -1,0 +1,37 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.card-login {
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 60px 40px -7px;
+}
+
+.expanded-card {
+  min-height: 350px;
+  transition: all 0.3s ease-in-out;
+}
+
+.Articles {
+  margin-top: 120px;
+}
+
+.Carousel {
+  margin-top: 50px;
+}
+
+.About {
+  background: #f8f9fa;
+  border-radius: 10px;
+  padding: 2rem;
+  margin-bottom: 2rem;
+  margin-top: 100px;
+}
+
+@media (max-width: 576px) {
+  .table .btn {
+    font-size: 0.8rem;
+    padding: 0.25rem 0.5rem;
+  }
+}
